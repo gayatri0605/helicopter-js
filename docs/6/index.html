@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/workbook.css">
+        <script src="../../js/resizeIFrames.js"></script>
+    </head>
+    <body>
+        <div class="container container--outer"><div class="maincolumn">
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Exercise 1: Quadcopter / Multi-Rotor</h1>
+		</header>
+		<div class="content post__content clearfix">
+			<p>You have made a quadcopter in 2D on a previous assignment. We&rsquo;ll do the same thing again, with a few twists.</p>
+<p><strong>Summary:</strong> In <a href="../../for_students/6-1.js" class="for_students">6-1.js</a> (<a href="../../for_students/6-1.html" class="for_students">6-1.html</a>) turn the flying donut into a quadcopter/aircraft (with spinning rotors/propellers).</p>
+<p>First, since this is 3D, we won&rsquo;t just see the vehicle from above, so you have a little more freedom in what you make. It needs to have multiple (spinning) propellers, but it could be a traditional helicopter (with a vertical rotor in the tail) or even a multi-engined propeller airplane.</p>
+<p>Second, in addition to the aircraft, you need to have a &ldquo;radar dish&rdquo; on the ground that always points towards the aircraft. This object should stay in the same place on the ground, but rotate so that it is always pointing towards the aircraft (tracking it). As the aircraft moves, the radar rotates. It doesn&rsquo;t have to be a radar dish (you can be creative), but it does have to have an obvious &ldquo;top&rdquo; that always points towards the aircraft.</p>
+<p>The goal of the assignment is to have you make a hierarchical object (aircraft with propellers) that flies around in 3D, and be able to point one object at the other. Other bells and whistles are nice (and can earn bonus points).</p>
+<p>Some requirements:</p>
+<ol>
+<li>The aircraft can be simple in shape, but it must have an obvious front that faces forward when flying.</li>
+<li>The propellers can be simple (a thin box can work), but they must have an obvious center that they spin around, and they must spin as the aircraft flies.</li>
+<li>Your scene must have a ground plane.</li>
+<li>Your scene must have at least one aircraft that flies in a circle. You can have the other aircraft fly in more complicated ways (see bonus points).</li>
+<li>You should have at least two aircraft flying. Both with spinning propellers.</li>
+<li>For each aircraft there should be an object on the ground that tracks it (points toward it as it flies around). These can be radar dishes, but they can have a different shape as well. Whatever they are, it should be obvious which direction they are pointing and that they &ldquo;track&rdquo; the aircraft (they continually point towards it as the aircraft flies around).</li>
+</ol>
+<p><em>Note: it will be better to have one aircraft, with a functional radar dish, than two aircraft and no radar dish. Of course, it&rsquo;s best to have two of each. Once you make one, it shouldn&rsquo;t be too hard to add another.</em></p>
+<p>The starter code provides some lighting, a simple ground plane, and OrbitCamera controls. You are welcome to improve the lighting, and make the ground more interesting.</p>
+<p><strong>Try getting things to work with simple shapes first.</strong> It is better to have a simple helicopter made of blocks that has a block propeller that spins properly, than a fancy shaped thing that doesn&rsquo;t fly correctly.</p>
+<p><em>(optional)</em> You may load geometry from a file (using, for example THREE&rsquo;s OBJLoader). However, if you do this, you must describe in your readme file where the OBJ files come from. If you do not create the file yourself, be sure to give proper attribution, and confirm that it comes from a source that allows you to use it (i.e., it has a Creative Commons license). Don&rsquo;t forget to add any geometry files to the repository. Please do not give big files, or things that use features we haven&rsquo;t discussed in class yet (like textures). You may only add object files (e.g., .obj). If you choose to load geometry from a file, look at the previous workbook for tips. You will have plenty of opportunity to use loaded objects in later workbooks.</p>
+<p>If you&rsquo;re curious how to make a radar dish, you can use the <a href="https://threejs.org/docs/#api/en/geometries/LatheGeometry" target="_blank">lathe</a> example. Or you can make it some other way. A cone would work at a minimum. It is more important that the object has the right behavior (it clearly points toward an aircraft). A hint: <code>lookAt</code> is your friend.</p>
+<iframe src="../../for_students/6-1.html" width="100%" height="100%" scrolling="no" frameborder="0" style="overflow:hidden;height:100%;width:100%;border: 2px solid gray;border-radius: 5px;"></iframe>
+<p>You should complete this assignment in <a href="../../for_students/6-1.js" class="for_students">6-1.js</a> (<a href="../../for_students/6-1.html" class="for_students">6-1.html</a>). We&rsquo;ve given you some code to start - a basic ground plane, a camera, some lights, even a simple animation loop. We&rsquo;ve put the <code>OrbitControls</code> for the camera into the scene. You don&rsquo;t have to use what we&rsquo;ve put there (you can take out things if you want to put in better stuff - especially for the ground and lighting). However, please include <code>OrbitControls</code> in your result.</p>
+<p><strong>This part of the assignment does not use the framework code (described in the later pages).</strong> Please build everything using THREE.js &ldquo;from scratch&rdquo; (using the starter code). In other parts of this workbook, we&rsquo;ll introduce you to some framework code that should help in making bigger projects.</p>
+<p>We will reward exceptional projects with bonus points. From the last quadcopter assignment, we saw that people can be very creative. We will reward cool stuff (after you show the basics). It is more important to have spinning propellers on flying aircraft than fancier things.</p>
+<ol>
+<li>Have interesting aircraft, potentially with multiple types. This means more than just finding a shape and loading it from a file (although loading geometry is allowed).</li>
+<li>Have the aircraft have interesting behaviors. One has to fly in a circle. Others can fly in more complex patterns. For example, have a quadcopter that takes off, picks a random place to fly to, turns to face that direction, flies in that direction and lands when it gets to its destination. You could give it a spotlight that shines at its destination so we know where it&rsquo;s going.</li>
+</ol>
+<p>If you do something you feel is worthy of bonus points, be sure to describe it in the readme. Sometimes interesting behaviors aren&rsquo;t obvious at a glance.</p>
+<p>After this exercise, move on to <a href="../../docs/7/">Page7(The CS559 Framework Code (GraphicsTown))</a> to learn about the framework code we&rsquo;ll use for the next exercises (and future workbooks).</p>
+
+
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span class="expand__button">Rubric for Page 6 / Exercise 1 (Quadcopter)</span>
+      <span>↕</span>
+    </div>
+    <input type="checkbox" style="display: none" />
+    <div class="book-expand-content markdown-inner">
+      <p>Maximum 30 points:</p>
+<ul>
+<li>
+<p>(3) Some aircraft that isn&rsquo;t a donut</p>
+</li>
+<li>
+<p>(4) A propeller that spins (not the body)</p>
+</li>
+<li>
+<p>(3) More than one propeller spinning</p>
+</li>
+<li>
+<p>(3) (at least) One aircraft that flies in a circle (or curved path)</p>
+</li>
+<li>
+<p>(3) aircraft point forward (and turn in the direction of motion)</p>
+</li>
+<li>
+<p>(2) Radar dish (or some object)</p>
+</li>
+<li>
+<p>(4) Correctly points at aircraft (tracks as aircraft moves)</p>
+</li>
+<li>
+<p>(2) multiple aircraft</p>
+</li>
+<li>
+<p>(2+) cool aircraft</p>
+</li>
+<li>
+<p>(2+) more complex motion</p>
+</li>
+<li>
+<p>(2+) multiple types of aircraft</p>
+</li>
+<li>
+<p>(2+) other cool features (students came up with some great things in 2D!)</p>
+</li>
+</ul>
+
+    </div>
+  </label>
+</div>
+
+
+		</div>
+	</article>
+</main>
+
+                </div>
+                <div class="sidebar">
+<h2 class="Side_Title">Workbook 8: Transformation and Hierarchy in THREE.JS</h2>
+<p class="Side__Note">Pages:</p>
+<ul class="Side__List">
+    <li class="Side__Item Side__Unselected"><a href="../../">Index (Transformation and Hierarchy in THREE.JS)</a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/1/">1: Rotations in 3D </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/2/">2: Euler Angles Toy </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/3/">3: Comparing Incremental Rotations </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/4/">4: Quaternions </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/5/">5: Hierarchical Modeling in THREE </a></li>
+        <li class="Side__Item Side__Selected"> 6: Exercise 1: Quadcopter / Multi-Rotor </li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/7/">7: The CS559 Framework Code (GraphicsTown) </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/8/">8: Exercise 2: Graphics Park </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/9/">9: Exercise 3: Construction Site </a></li>
+</ul>
+</div>
+</div>
+    </body>
+</html>

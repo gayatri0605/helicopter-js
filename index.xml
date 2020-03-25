@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transformation and Hierarchy in THREE.JS on Workbook 8: Transformation and Hierarchy in THREE.JS</title>
+    <link>/</link>
+    <description>Recent content in Transformation and Hierarchy in THREE.JS on Workbook 8: Transformation and Hierarchy in THREE.JS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Mar 2020 16:12:16 -0600</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rotations in 3D</title>
+      <link>/docs/1/</link>
+      <pubDate>Sun, 01 Mar 2020 16:12:23 -0600</pubDate>
+      
+      <guid>/docs/1/</guid>
+      <description>Topics in Rotations The key topics to know about rotations:
+ Rotations around a single axis. Why is the 2D case easier, and how does that apply in 3D? The basic challenges of rotation in 3D. Why does it get so tricky? The main types of 3D rotation representations: Euler Angles, Axis-Angle, Quaternions, and Rotation Matrices. You don&amp;rsquo;t need to know the details of each, but you should have the intuitions for each, and what they are good and bad at.</description>
+    </item>
+    
+    <item>
+      <title>Euler Angles Toy</title>
+      <link>/docs/2/</link>
+      <pubDate>Sun, 01 Mar 2020 16:12:32 -0600</pubDate>
+      
+      <guid>/docs/2/</guid>
+      <description>Box 1: Euler Angles We use the term &amp;ldquo;Euler Angles&amp;rdquo; to refer to the representation of a 3D rotation as a sequence of 3 rotations about fixed axes. For example, we can represent a rotation in 3D as a sequence of 3 rotations: one about the X axis, one about the Y axis, and one about the Z axis. The important point is these axes are fixed: we decide them ahead of time.</description>
+    </item>
+    
+    <item>
+      <title>Comparing Incremental Rotations</title>
+      <link>/docs/3/</link>
+      <pubDate>Sun, 01 Mar 2020 16:12:35 -0600</pubDate>
+      
+      <guid>/docs/3/</guid>
+      <description>Box 1: A simple example that isn&amp;rsquo;t so simple The real learning goal of this page is to get you to think about axis angle representations. To do that, we&amp;rsquo;ll use the example we looked at in class: trying to understand what is going on in the first spinning cube demo we did (in class, but also in Workbook 6 on the first page).
+The code is in 3-1.js (3-1.html) (it&amp;rsquo;s the same as in lecture, and on page 1 of workbook 7).</description>
+    </item>
+    
+    <item>
+      <title>Quaternions</title>
+      <link>/docs/4/</link>
+      <pubDate>Sun, 01 Mar 2020 16:12:37 -0600</pubDate>
+      
+      <guid>/docs/4/</guid>
+      <description>Quaternion Basics Quaternions are usually not a topic discussed in an introductory graphics course - but they are an important topic that gets a lot of discussion in graphics more generally. We want to give you the basic idea for two reasons:
+ The basic idea isn&amp;rsquo;t that much different than Axis Angle, which you should understand as part of a graphics class. If you have this idea, Quaternions won&amp;rsquo;t seem so magical.</description>
+    </item>
+    
+    <item>
+      <title>Hierarchical Modeling in THREE</title>
+      <link>/docs/5/</link>
+      <pubDate>Sun, 01 Mar 2020 16:12:39 -0600</pubDate>
+      
+      <guid>/docs/5/</guid>
+      <description>In THREE, objects (instances of Object3D) can contain other objects. Rather than adding an object directly to the scene, we can add an object to another object. This parent object can be added to the scene (or to another object). In order to be in the scene, an object either needs to be added to the scene, or added to some object who has a parent that is part of the scene (recursively).</description>
+    </item>
+    
+    <item>
+      <title>Exercise 1: Quadcopter / Multi-Rotor</title>
+      <link>/docs/6/</link>
+      <pubDate>Sun, 01 Mar 2020 16:12:42 -0600</pubDate>
+      
+      <guid>/docs/6/</guid>
+      <description>You have made a quadcopter in 2D on a previous assignment. We&amp;rsquo;ll do the same thing again, with a few twists.
+Summary: In 6-1.js (6-1.html) turn the flying donut into a quadcopter/aircraft (with spinning rotors/propellers).
+First, since this is 3D, we won&amp;rsquo;t just see the vehicle from above, so you have a little more freedom in what you make. It needs to have multiple (spinning) propellers, but it could be a traditional helicopter (with a vertical rotor in the tail) or even a multi-engined propeller airplane.</description>
+    </item>
+    
+    <item>
+      <title>The CS559 Framework Code (GraphicsTown)</title>
+      <link>/docs/7/</link>
+      <pubDate>Sun, 01 Mar 2020 16:12:45 -0600</pubDate>
+      
+      <guid>/docs/7/</guid>
+      <description>Prelude to Graphics Town For the remaining parts of the workbook (two exercises), you will work with some framework code we have created for this class. Learning to work with the Framework code is important practically (you will use it on most of the assignments from here on), but also pedagogically. In the real world, you often have to work with code that someone else wrote.
+The framework code allows you to focus on creating graphics objects and defining their behavior (for animation).</description>
+    </item>
+    
+    <item>
+      <title>Exercise 2: Graphics Park</title>
+      <link>/docs/8/</link>
+      <pubDate>Sun, 01 Mar 2020 16:12:47 -0600</pubDate>
+      
+      <guid>/docs/8/</guid>
+      <description>Over the next few weeks, we&amp;rsquo;ll build Graphics Town. But to start, we&amp;rsquo;ll begin with something less ambitious: a park. We&amp;rsquo;ll add some &amp;ldquo;rides&amp;rdquo; to the park to make it more like an Amusement Park than just a playground.
+You can see the beginnings of a park below (which is 8-1.html). The code is in 8-1.js, 8-simplepark.js, and 8-parkobjects.js. The first file makes the park: it makes the world and places the playground equipment into it.</description>
+    </item>
+    
+    <item>
+      <title>Exercise 3: Construction Site</title>
+      <link>/docs/9/</link>
+      <pubDate>Sun, 01 Mar 2020 16:12:50 -0600</pubDate>
+      
+      <guid>/docs/9/</guid>
+      <description>Over the next few weeks, we&amp;rsquo;ll build up Graphics Town. So, to start with, we&amp;rsquo;ll need to get some construction equipment to start building.
+In terms of real learning goals, construction equipment is often great examples of articulated objects - they consist of pieces that rotate or translate relative to each other. Things like dump trucks, excavators, cranes, cement mixers, pile drivers, etc. Also, this will let you try out more of the framework code, in particular the automatic creation of UIs for object parameters.</description>
+    </item>
+    
+  </channel>
+</rss>

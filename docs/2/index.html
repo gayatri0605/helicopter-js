@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/workbook.css">
+        <script src="../../js/resizeIFrames.js"></script>
+    </head>
+    <body>
+        <div class="container container--outer"><div class="maincolumn">
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Euler Angles Toy</h1>
+		</header>
+		<div class="content post__content clearfix">
+			<h2 id="box-1-euler-angles">Box 1: Euler Angles</h2>
+<p>We use the term &ldquo;Euler Angles&rdquo; to refer to the representation of a 3D rotation as a sequence of 3 rotations about fixed axes. For example, we can represent a rotation in 3D as a sequence of 3 rotations: one about the X axis, one about the Y axis, and one about the Z axis. The important point is these axes are <strong>fixed:</strong> we decide them ahead of time. We have chosen X, Y then Z. Once we&rsquo;ve chosen them, we need to stick with these 3 axes in this order.</p>
+<p>This representation comes from a theorem that mathematician Leonhard Euler had: <em>any</em> rotation in 3D can be represented as a sequence of rotations about fixed axes. The theorem is very general: any set of axes can work (providing no two consecutive axes are parallel).</p>
+<p>Once we choose a convention (a set of axes and their order), we only need 3 numbers to represent an arbitrary 3D rotation: the amount of rotation around each axis.</p>
+<p>If only one of the axes is non-zero, things are easy. <em>Experiment with the Demo (below) and make sure you understand what a rotation about each axis does.</em></p>
+<p>A thing that makes Euler Angles tricky is that the different rotations interact. The first rotation changes the coordinate system (frame) that the next rotation takes place in, so we need to interpret each of the angles with respect to the others.</p>
+<p><em>Experiment with rotating about one axis and then another. For example, change X1 and then Y1. Then reset (press the zero button) and see what happens if you change Y1 then X1. Try to understand what happens as we apply a sequence of rotations.</em></p>
+<p>Here are some complicated situations that come up:</p>
+<ol>
+<li>
+<p>In some circumstances, you can get into a configuration where there are only two possible directions to rotate (you can cause a particular change to happen). This is called <strong>gimbal lock.</strong> For XYZ Euler angles this occurs when the rotation about the Y axis is 90 degrees, causing the X axis to align with the Z axis (and perform the same motion).</p>
+<p><em>To see this in the demo, press the &ldquo;Gimball Lock&rdquo; button which will set Y to 90 degrees. Notice how X and Z do the same thing.</em></p>
+</li>
+<li>
+<p>Different sets of angles may represent the same rotation. That means that interpolating between two close things might lead to weird paths, or that comparing sets of angles is hard.</p>
+<p><em>To see an example of this, press the &ldquo;Bad Interp&rdquo; Button. You&rsquo;ll see that the rotations are the same (the objects are in the same configuration), but the numbers are very different. If you interpolate between the two configurations that should be &ldquo;the same&rdquo;, you get a weird rotation.</em></p>
+</li>
+<li>
+<p>Different orders do different things.</p>
+<p><em>To try this out, set object #2 to ZYX (with object #1 as XYZ). Notice how they do different things. Start with just changing X and Y of each. See how the rotations &ldquo;closer to the object&rdquo; are object axes, while rotations &ldquo;closer to the world&rdquo; are world axes.</em></p>
+</li>
+<li>
+<p>In general, it can be hard to know what changes to the different rotations will do.</p>
+</li>
+</ol>
+<p>To demonstrate these things there&rsquo;s an interactive toy on the bottom of this page. You are welcome to read the code, but it&rsquo;s not recommend. You should play with the toy to see how Euler angles work.</p>
+<p>In the view, you&rsquo;ll see three objects. For the ones on the left and right, there is a choice drop down to let you choose the axes and their order. Then you can use the sliders to adjust the angles and see what happens. There are buttons that put things into gimbal lock, and another one that creates two rotations that are the same rotations, but with very different parameters - interpolation between the two yields a crazy path. The center object will interpolate between the left and right (but only if they are using the same axes and order).</p>
+<p>We recommend that you spend some time playing with the Euler Angle toy (below and <a href="../../for_students/2-1.js" class="for_students">2-1.js</a> (<a href="../../for_students/2-1.html" class="for_students">2-1.html</a>)) to build up your intuitions about how Euler Angles work, and the problems they have.</p>
+<p>Then you can move on to <a href="../../docs/3/">Page3(Comparing Incremental Rotations)</a> to consider some alternatives.</p>
+<iframe src="../../for_students/2-1.html" width="100%" height="100%" scrolling="no" frameborder="0" style="overflow:hidden;height:100%;width:100%;border: 2px solid gray;border-radius: 5px;"></iframe>
+
+		</div>
+	</article>
+</main>
+
+                </div>
+                <div class="sidebar">
+<h2 class="Side_Title">Workbook 8: Transformation and Hierarchy in THREE.JS</h2>
+<p class="Side__Note">Pages:</p>
+<ul class="Side__List">
+    <li class="Side__Item Side__Unselected"><a href="../../">Index (Transformation and Hierarchy in THREE.JS)</a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/1/">1: Rotations in 3D </a></li>
+        <li class="Side__Item Side__Selected"> 2: Euler Angles Toy </li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/3/">3: Comparing Incremental Rotations </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/4/">4: Quaternions </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/5/">5: Hierarchical Modeling in THREE </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/6/">6: Exercise 1: Quadcopter / Multi-Rotor </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/7/">7: The CS559 Framework Code (GraphicsTown) </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/8/">8: Exercise 2: Graphics Park </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/9/">9: Exercise 3: Construction Site </a></li>
+</ul>
+</div>
+</div>
+    </body>
+</html>
