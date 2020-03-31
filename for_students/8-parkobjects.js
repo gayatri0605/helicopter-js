@@ -3,6 +3,7 @@
 
 import * as T from "../libs/CS559-THREE/build/three.module.js";
 import { GrObject } from "../libs/CS559-Framework/GrObject.js";
+import { Sphere, SphereGeometry } from "../libs/CS559-THREE/build/three.module.js";
 
 let simpleRoundaboutObCtr = 0;
 // A simple merry-go-round.
@@ -57,6 +58,7 @@ export class GrSimpleRoundabout extends GrObject {
     let scale = params.size ? Number(params.size) : 1;
     simpleRoundabout.scale.set(scale, scale, scale);
 
+    // @ts-ignore
     this.tick = function(delta, timeOfDay) {
       this.platform.rotateY(0.005 * delta);
     };
@@ -146,6 +148,7 @@ export class GrColoredRoundabout extends GrObject {
     let scale = params.size ? Number(params.size) : 1;
     roundabout.scale.set(scale, scale, scale);
 
+    // @ts-ignore
     this.tick = function(delta, timeOfDay) {
       this.platform.rotateY(0.005 * delta);
     };
@@ -214,6 +217,7 @@ export class GrSimpleSwing extends GrObject {
     r_chain.translateZ(-0.4);
 
     let seat_group = new T.Group();
+    // @ts-ignore
     let seat_geom = new T.CubeGeometry(0.4, 0.1, 1);
     let seat_mat = new T.MeshStandardMaterial({
       color: "#554433",
@@ -241,6 +245,7 @@ export class GrSimpleSwing extends GrObject {
 
     this.swing_max_rotation = Math.PI / 4;
     this.swing_direction = 1;
+    // @ts-ignore
     this.tick = function(delta, timeOfDay) {
       // if we swing too far forward or too far backward, switch directions.
       if (this.hanger.rotation.z >= this.swing_max_rotation)
@@ -318,6 +323,7 @@ export class GrAdvancedSwing extends GrObject {
     r_chain.translateZ(-0.4);
 
     let seat_group = new T.Group();
+    // @ts-ignore
     let seat_geom = new T.CubeGeometry(0.4, 0.1, 1);
     let seat_mat = new T.MeshStandardMaterial({
       color: "#554433",
@@ -344,6 +350,7 @@ export class GrAdvancedSwing extends GrObject {
     swing.scale.set(scale, scale, scale);
 
     this.swing_angle = 0;
+    // @ts-ignore
     this.tick = function(delta, timeOfDay) {
       // in this animation, use the sine of the accumulated angle to set current rotation.
       // This means the swing moves faster as it reaches the bottom of a swing,
@@ -482,11 +489,38 @@ export class GrCarousel extends GrObject {
       opole.translateX(0.8 * width);
       poles.push(opole);
     }
+    let horse_geom = new SphereGeometry(0.5,1);
+    let horse_mat = new T.MeshStandardMaterial({
+      color : "green",
+      metalness : 0.8,
+      roughness: 1
+    });
+    let horse;
+    let horses = [];
 
+    for (let i = 0; i < num_poles; i++)
+		{
+            // pole for carousel
+			opole = new T.Mesh(opole_geom, opole_mat);
+			platform_group.add(opole);
+			opole.translateY(1.5);
+			opole.rotateY(2*i*Math.PI/num_poles);
+			opole.translateX(0.8*width);
+			poles.push(opole);
+
+            // horses - but actually spheres
+            horse = new T.Mesh(horse_geom, horse_mat);
+            platform.add(horse);
+            horse.translateY(1.5);
+            horse.rotateY(2*i*Math.PI/num_poles);
+            horse.translateX(0.8*width);
+            horses.push(horse);
+		}
     let roof_geom = new T.ConeGeometry(width, 0.5 * width, 32, 4);
     let roof = new T.Mesh(roof_geom, base_mat);
     carousel.add(roof);
     roof.translateY(4.8);
+    
 
     // note that we have to make the Object3D before we can call
     // super and we have to call super before we can use this
@@ -501,5 +535,19 @@ export class GrCarousel extends GrObject {
     this.whole_ob.position.z = params.z ? Number(params.z) : 0;
     let scale = params.size ? Number(params.size) : 1;
     carousel.scale.set(scale, scale, scale);
+    
+    this.delta = 0;
+    this.tick = function(delta, timeOfDay) {
+      this.platform.rotateY(0.005 * delta);
+    };
+        this.delta += this.delta;
+
+       
+        horses.forEach( (horse,i) => {
+            let h = 1 - Math.sin(this.delta*0.002+i)/3;
+            horse.position.y = h;
+        });
+    };
   }
-}
+
+  
